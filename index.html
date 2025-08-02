@@ -1,6 +1,89 @@
-<p>Fecha actual: <span id="fecha"></span></p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD Simple</title>
+</head>
+<body>
+  <h2>CRUD Simple</h2>
+  <div id="contenido">
+    
+<input type="text" id="nombre" placeholder="Nombre">
+<button onclick="crear()">Crear</button>
+
+<script>
+  let registros = [];
+
+  function crear() {
+    const nombre = document.getElementById("nombre").value.trim();
+    if (nombre === "") return alert("Escribe un nombre");
+    registros.push(nombre);
+    console.log("Registros:", registros);
+  }
+</script>
+    
+ <button onclick="eliminar(index)">Eliminar</button>
+
+<script>
+  function eliminar(index) {
+    registros.splice(index, 1);
+    renderizar();
+  }
+</script>
+    
+    
+<table border="1">
+  <thead>
+    <tr><th>#</th><th>Nombre</th></tr>
+  </thead>
+  <tbody id="tabla"></tbody>
+</table>
+
+<script>
+  function renderizar() {
+    const tabla = document.getElementById("tabla");
+    tabla.innerHTML = "";
+    registros.forEach((nombre, index) => {
+      tabla.innerHTML += `<tr><td>${index + 1}</td><td>${nombre}</td></tr>`;
+    });
+  }
+</script>
+    
+    <button onclick="actualizar(index)">Editar</button>
+
+<script>
+  let indexEditar = -1;
+
+  function actualizar(i) {
+    document.getElementById("nombre").value = registros[i];
+    indexEditar = i;
+  }
+
+  function crear() {
+    const nombre = document.getElementById("nombre").value.trim();
+    if (nombre === "") return alert("Nombre vacío");
+
+    if (indexEditar >= 0) {
+      registros[indexEditar] = nombre;
+      indexEditar = -1;
+    } else {
+      registros.push(nombre);
+    }
+
+    document.getElementById("nombre").value = "";
+    renderizar();
+  }
+</script>
+    
+    <p>Fecha actual: <span id="fecha"></span></p>
 
 <script>
   const f = new Date();
   document.getElementById("fecha").innerText = f.toLocaleDateString('es-DO');
 </script>
+
+  </div>
+</body>
+</html>
+
+
