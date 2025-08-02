@@ -30,10 +30,25 @@
     renderizar();
   }
 </script>
+    
+    
+<table border="1">
+  <thead>
+    <tr><th>#</th><th>Nombre</th></tr>
+  </thead>
+  <tbody id="tabla"></tbody>
+</table>
+
+<script>
+  function renderizar() {
+    const tabla = document.getElementById("tabla");
+    tabla.innerHTML = "";
+    registros.forEach((nombre, index) => {
+      tabla.innerHTML += `<tr><td>${index + 1}</td><td>${nombre}</td></tr>`;
+    });
+  }
+</script>
   </div>
 </body>
 </html>
-
-
-
 
