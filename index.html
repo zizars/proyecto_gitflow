@@ -1,4 +1,55 @@
-<button onclick="actualizar(index)">Editar</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD Simple</title>
+</head>
+<body>
+  <h2>CRUD Simple</h2>
+  <div id="contenido">
+    
+<input type="text" id="nombre" placeholder="Nombre">
+<button onclick="crear()">Crear</button>
+
+<script>
+  let registros = [];
+
+  function crear() {
+    const nombre = document.getElementById("nombre").value.trim();
+    if (nombre === "") return alert("Escribe un nombre");
+    registros.push(nombre);
+    console.log("Registros:", registros);
+  }
+</script>
+    
+ <button onclick="eliminar(index)">Eliminar</button>
+
+<script>
+  function eliminar(index) {
+    registros.splice(index, 1);
+    renderizar();
+  }
+</script>
+    
+    
+<table border="1">
+  <thead>
+    <tr><th>#</th><th>Nombre</th></tr>
+  </thead>
+  <tbody id="tabla"></tbody>
+</table>
+
+<script>
+  function renderizar() {
+    const tabla = document.getElementById("tabla");
+    tabla.innerHTML = "";
+    registros.forEach((nombre, index) => {
+      tabla.innerHTML += `<tr><td>${index + 1}</td><td>${nombre}</td></tr>`;
+    });
+  }
+</script>
+    
+    <button onclick="actualizar(index)">Editar</button>
 
 <script>
   let indexEditar = -1;
@@ -23,3 +74,10 @@
     renderizar();
   }
 </script>
+  </div>
+</body>
+</html>
+
+
+
+
