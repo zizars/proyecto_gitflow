@@ -21,9 +21,19 @@
     console.log("Registros:", registros);
   }
 </script>
+    
+ <button onclick="eliminar(index)">Eliminar</button>
+
+<script>
+  function eliminar(index) {
+    registros.splice(index, 1);
+    renderizar();
+  }
+</script>
   </div>
 </body>
 </html>
+
 
 
 
