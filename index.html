@@ -1,16 +1,25 @@
-<!DOCTYPE html>
+<button onclick="actualizar(index)">Editar</button>
 
-<html lang="es">
-  <head>
-    <meta charset="UFT8">
-    <title>Titulo</title>
-  </head>
-  <body>
-    <h1>Bienvenido a la pagina</h1>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-  </body>
-</html>
+<script>
+  let indexEditar = -1;
+
+  function actualizar(i) {
+    document.getElementById("nombre").value = registros[i];
+    indexEditar = i;
+  }
+
+  function crear() {
+    const nombre = document.getElementById("nombre").value.trim();
+    if (nombre === "") return alert("Nombre vacío");
+
+    if (indexEditar >= 0) {
+      registros[indexEditar] = nombre;
+      indexEditar = -1;
+    } else {
+      registros.push(nombre);
+    }
+
+    document.getElementById("nombre").value = "";
+    renderizar();
+  }
+</script>
