@@ -30,6 +30,50 @@
     renderizar();
   }
 </script>
+    
+    
+<table border="1">
+  <thead>
+    <tr><th>#</th><th>Nombre</th></tr>
+  </thead>
+  <tbody id="tabla"></tbody>
+</table>
+
+<script>
+  function renderizar() {
+    const tabla = document.getElementById("tabla");
+    tabla.innerHTML = "";
+    registros.forEach((nombre, index) => {
+      tabla.innerHTML += `<tr><td>${index + 1}</td><td>${nombre}</td></tr>`;
+    });
+  }
+</script>
+    
+    <button onclick="actualizar(index)">Editar</button>
+
+<script>
+  let indexEditar = -1;
+
+  function actualizar(i) {
+    document.getElementById("nombre").value = registros[i];
+    indexEditar = i;
+  }
+
+  function crear() {
+    const nombre = document.getElementById("nombre").value.trim();
+    if (nombre === "") return alert("Nombre vacío");
+
+    if (indexEditar >= 0) {
+      registros[indexEditar] = nombre;
+      indexEditar = -1;
+    } else {
+      registros.push(nombre);
+    }
+
+    document.getElementById("nombre").value = "";
+    renderizar();
+  }
+</script>
   </div>
 </body>
 </html>
