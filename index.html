@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="es">
-  <head>
-    <meta charset="UFT8">
-    <title>Titulo</title>
-  </head>
-  <body>
-    <h1>Bienvenido a la pagina</h1>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD Simple</title>
+</head>
+<body>
+  <h2>CRUD Simple</h2>
+  <div id="contenido">
+    
+<input type="text" id="nombre" placeholder="Nombre">
+<button onclick="crear()">Crear</button>
+
+<script>
+  let registros = [];
+
+  function crear() {
+    const nombre = document.getElementById("nombre").value.trim();
+    if (nombre === "") return alert("Escribe un nombre");
+    registros.push(nombre);
+    console.log("Registros:", registros);
+  }
+</script>
+  </div>
+</body>
 </html>
+
+
+
