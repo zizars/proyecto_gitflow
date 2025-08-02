@@ -1,16 +1,6 @@
-<!DOCTYPE html>
+<p>Fecha actual: <span id="fecha"></span></p>
 
-<html lang="es">
-  <head>
-    <meta charset="UFT8">
-    <title>Titulo</title>
-  </head>
-  <body>
-    <h1>Bienvenido a la pagina</h1>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-  </body>
-</html>
+<script>
+  const f = new Date();
+  document.getElementById("fecha").innerText = f.toLocaleDateString('es-DO');
+</script>
