@@ -1,16 +1,8 @@
-<!DOCTYPE html>
+<button onclick="eliminar(${index})">Eliminar</button>
 
-<html lang="es">
-  <head>
-    <meta charset="UFT8">
-    <title>Titulo</title>
-  </head>
-  <body>
-    <h1>Bienvenido a la pagina</h1>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-  </body>
-</html>
+<script>
+  function eliminar(index) {
+    registros.splice(index, 1);
+    renderizar();
+  }
+</script>
