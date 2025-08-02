@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<table border="1">
+  <thead>
+    <tr><th>#</th><th>Nombre</th></tr>
+  </thead>
+  <tbody id="tabla"></tbody>
+</table>
 
-<html lang="es">
-  <head>
-    <meta charset="UFT8">
-    <title>Titulo</title>
-  </head>
-  <body>
-    <h1>Bienvenido a la pagina</h1>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-  </body>
-</html>
+<script>
+  function renderizar() {
+    const tabla = document.getElementById("tabla");
+    tabla.innerHTML = "";
+    registros.forEach((nombre, index) => {
+      tabla.innerHTML += `<tr><td>${index + 1}</td><td>${nombre}</td></tr>`;
+    });
+  }
+</script>
