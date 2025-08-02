@@ -74,10 +74,16 @@
     renderizar();
   }
 </script>
+    
+    <p>Fecha actual: <span id="fecha"></span></p>
+
+<script>
+  const f = new Date();
+  document.getElementById("fecha").innerText = f.toLocaleDateString('es-DO');
+</script>
+
   </div>
 </body>
 </html>
-
-
 
 
